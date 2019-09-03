@@ -1,0 +1,227 @@
+body{
+  background-color: #FFD280;
+}
+.navbar-default {
+  background-color: Orange;
+  border: 0px;
+  border-radius: 0px;
+}
+.navbar-default .navbar-brand {
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+footer {
+	background-color: Orange;
+	color: #fff;
+	padding-top: 10px;
+	text-align: center;
+}
+.upload_area, .newest_images_area, .stat_area, .popular_images_area, .latest_comments_area, .image_area, .comment_area, .login_area, .signup_area, .chat_area{
+	border:1px solid Orange;
+	min-height: 40vh;
+  background-color: #FFFFFF;
+	padding:5px 10px;
+	margin-bottom: 5vh;
+	border-radius: 5px;
+}
+.stat_area, .popular_images_area, .latest_comments_area{
+	min-height: 25vh;
+}
+h4{
+	border-bottom:1px solid Orange;
+	padding-bottom:5px;
+}
+.btn-upload {
+  color: #fff;
+  background-color: Orange;
+  border-color: Orange;
+}
+.btn-upload:focus,
+.btn-upload.focus {
+  color: #fff;
+  background-color: Orange;
+  border-color: Orange;
+}
+.btn-upload:hover {
+  color: #000;
+  background-color: Orange;
+  border-color: Orange;
+}
+input, textarea{
+  border:1px solid Orange !important;
+}
+.newest_images_area img{
+  height:150px;
+  width:100%;
+  margin-bottom:5px;
+}
+.image_area img{
+  max-width:100%;
+  display:block;
+  margin:0 auto;
+}
+.image_area{
+  margin-bottom: 1vh;
+}
+.comment_area{
+  min-height: 5vh;
+}
+.modal-body > img{
+  height:400px;
+  width:100%;
+  display: block;
+  margin:0 auto;
+}
+.popular_images_area img{
+  height:100px;
+  width:100%;
+  margin-bottom:5px;
+}
+.latest_comments_area img{
+  height:50px;
+  width:50px;
+}
+.login_area, .signup_area{
+  min-height: 73vh;
+}
+#login-info{
+  top:6vh;
+  right:15vw;
+  position:absolute;
+  padding-top:5px;
+  height: 5vh;
+  width:20vw;
+  z-index: 5;
+}
+.carousel-inner{
+  height: 63vh;
+}
+.carousel .item{
+  height:63vh;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img{
+  margin:auto;
+  min-height:auto;
+  max-height: 63vh;
+}
+.carousel-caption {
+  bottom: 40px !important;
+  color: rgb(255, 165, 0) !important;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255) !important;
+}
+.carousel-control{
+  height: 63vh;
+}
+.carousel-control {
+  background-color: transparent !important;
+  color:Orange;
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  color: Orange;
+}
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  top: 180px;
+  height:63vh;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid Orange;
+  border-radius: 10px;
+}
+.carousel-indicators .active {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  background-color: Orange;
+}
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+.carousel-inner > .item {
+  background-color: #FFF;
+}
+.carousel-control.right {
+  right: 0;
+  left: auto;
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, .0001) 0%, rgba(255, 255, 255, .0001) 100%);
+  background-image:      -o-linear-gradient(left, rgba(255, 255, 255, .0001) 0%, rgba(255, 255, 255, .0001) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, .0001)), to(rgba(0, 0, 0, .5)));
+  background-image:         linear-gradient(to right, rgba(255, 255, 255, .0001) 0%, rgba(255, 255, 255, .0001) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+  background-repeat: repeat-x;
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, .0001) 0%, rgba(255, 255, 255, .0001) 100%);
+  background-image:      -o-linear-gradient(left, rgba(255, 255, 255, .0001) 0%, rgba(255, 255, 255, .0001) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, .0001)), to(rgba(0, 0, 0, .5)));
+  background-image:         linear-gradient(to right, rgba(255, 255, 255, .0001) 0%, rgba(255, 255, 255, .0001) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+  background-repeat: repeat-x;
+}
+.dropdown-menu img{
+  height:80px;
+  width:100%;
+}
+.dropdown .badge{
+  background-color: #FFF;
+  color:Orange;
+  position: relative;
+  bottom:5px;
+  right:5px;
+  border:1px solid Orange;
+}
+.chat_area{
+  min-height: 80vh;
+}
+.chat_room{
+  height: 450px;
+  background-color: whitesmoke;
+  overflow: scroll;
+}
+.userMessage, .myMessage, .serverMessage{
+  padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    max-width:80%;
+    float:left;
+    display:block;
+    clear:both
+}
+.userMessage{
+  background-color: LightPink;
+  border-radius: 25px 50px;
+  border-top-left-radius: 0px;
+}
+.myMessage{
+  background-color: LightBlue;
+  float: right;
+  border-radius: 50px 25px;
+  border-top-right-radius: 0px;
+}
+.serverMessage{
+  background-color: LightGreen;
+  border-radius: 25px 50px;
+  border-top-left-radius: 0px;
+  color:White;
+}

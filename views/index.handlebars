@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Kluster</title>
+
+    <!-- Bootstrap -->
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/logged">Kluster</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/profile"><strong data-id="{{user._id}}">{{user.name}}</strong></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-image"></i><span class="badge">{{new}}</span></a>
+              <ul class="dropdown-menu">
+                {{#if noviews}}
+                  {{#each noviews}}
+                    <li><a href="/image/{{uniqueId}}"><img src="/public/upload/{{filename}}" /></a></li>
+                  {{/each}}
+                {{/if}}
+              </ul>
+            </li>
+            <li><a href="/chatroom"><strong>Let's Chat</strong></a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+      <div class="row">
+        <section class="col-md-8">
+          <section class="upload_area">
+            <h4>Upload Image</h4>
+            <form method="post" action="/image" enctype="multipart/form-data" class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="file" class="col-sm-2 control-label">Browse</label>
+                <div class="col-sm-10">
+                  <input type="file" name="file" class="form-control" id="file" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" name="title" class="form-control" id="title" placeholder="Title" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                  <textarea name="description" class="form-control" placeholder="Description" id="description" required></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12 text-right">
+                  <button type="submit" class="btn btn-upload"><i class="fa fa-cloud-upload"></i> Upload</button>
+                </div>
+              </div>
+            </form>
+          </section>
+          <section class="newest_images_area">
+            <h4>Newest Images</h4>
+            <div class="row">
+              {{#if images}}
+                {{#each images}}
+                  <div class="col-md-4">
+                    <a href="/image/{{uniqueId}}">
+                      <img src="/public/upload/{{filename}}" class="img-thumbnail img-responsive">
+                    </a>
+                  </div>
+                {{/each}}
+              {{else}}
+                <div class="col-sm-12">
+                  <p class="text-muted">Newest Images will show up here.</p>
+                </div>
+              {{/if}}
+            </div>
+          </section>
+        </section>
+        <aside class="col-md-4">
+          <section class="col-md-12 stat_area">
+            <h4>Stats</h4>
+            <div class="row">
+              <div class="col-md-8">Images</div>
+              <div class="col-md-4 text-right">{{sidebar.stats.images}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">Views</div>
+              <div class="col-md-4 text-right">{{sidebar.stats.views}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">Likes</div>
+              <div class="col-md-4 text-right">{{sidebar.stats.likes}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">Comments</div>
+              <div class="col-md-4 text-right">{{sidebar.stats.comments}}</div>
+            </div>
+          </section>
+          <section class="col-md-12 popular_images_area">
+            <h4>Popular Images</h4>
+            <div class="row">
+              {{#if sidebar.popular}}
+                {{#each sidebar.popular}}
+                  <div class="col-md-4">
+                    <a href="/image/{{uniqueId}}">
+                      <img src="/public/upload/{{filename}}" class="img-thumbnail img-responsive">
+                    </a>
+                  </div>
+                {{/each}}
+              {{else}}
+                <div class="col-sm-12">
+                  <p class="text-muted">Most Popular Images will show up here.</p>
+                </div>
+              {{/if}}
+            </div>
+          </section>
+          <section class="col-md-12 latest_comments_area">
+            <h4>Latest Comments</h4>
+            <ul class="media-list">
+              {{#if sidebar.newest}}
+                {{#each sidebar.newest}}
+                  <li class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" src="/public/upload/{{image.filename}}">
+                    </a>
+                    <div class="media-body">
+                      {{comment}}<br />
+                      <strong class="media-heading">{{name}}</strong>
+                      <small>{{timeago timestamp}}</small>
+                    </div>
+                  </li>
+                {{/each}}
+              {{else}}
+                <p class="text-muted">Latest Comments will show up here</p>
+              {{/if}}
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="col-md-12">
+          <p class="text-center">&copy; Copyright Kluster 2019. All Rights Reserved.</p>
+          <p>
+            <i class="fa fa-facebook-square fa-2x"></i>
+            <i class="fa fa-twitter-square fa-2x"></i>
+            <i class="fa fa-instagram fa-2x"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/public/js/jquery.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/script.js"></script>
+  </body>
+</html>
