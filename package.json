@@ -1,11 +1,15 @@
 {
   "name": "kluster",
   "version": "1.0.0",
+  "engines": {
+    "node":"10.x",
+    "npm": "6.x"
+  },
   "description": "an image sharing web application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "start": "node server.js"
   },
   "keywords": [
     "image",
